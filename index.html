@@ -1,552 +1,682 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ash | CV</title>
+  <meta name="description" content="CV and professional profile of Andrian Suhartadi, Cloud Infrastructure Engineer.">
+  <meta name="author" content="Andrian Suhartadi">
+  <title>Andrian Suhartadi | Cloud Infrastructure Engineer</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg: #0b1020;
+      --surface: #111827;
+      --surface-2: #172033;
+      --text: #f8fafc;
+      --muted: #a8b3c7;
+      --line: rgba(255,255,255,.10);
+      --accent: #60a5fa;
+      --accent-2: #38bdf8;
+      --max: 1120px;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #171717;
-      line-height: 1.6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(1000px, 92%);
-      margin: auto;
+      width: min(var(--max), 92%);
+      margin: 0 auto;
     }
-
-    /* Navigation */
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid #ddd;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(11,16,32,.82);
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav-content {
-      min-height: 64px;
+    .nav-inner {
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .logo {
-      font-weight: bold;
-      font-size: 1.1rem;
+    .brand {
+      font-weight: 800;
+      letter-spacing: .08em;
+      font-size: .95rem;
     }
 
     .nav-links {
-      display: flex;
-      gap: 24px;
       list-style: none;
-      color: #666;
+      display: flex;
+      gap: 26px;
+      color: var(--muted);
+      font-size: .92rem;
     }
 
-    .nav-links a:hover {
-      color: #000;
-    }
-
-    /* Hero */
+    .nav-links a:hover { color: var(--text); }
 
     .hero {
-      padding: 100px 0;
-      background: white;
+      padding: 110px 0 95px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(56,189,248,.13), transparent 30%),
+        radial-gradient(circle at 20% 30%, rgba(96,165,250,.10), transparent 32%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 250px;
-      gap: 60px;
+      grid-template-columns: 1fr 330px;
+      gap: 70px;
       align-items: center;
     }
 
-    .role {
-      color: #2563eb;
-      font-weight: bold;
-      margin-bottom: 12px;
+    .eyebrow {
+      color: var(--accent);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      line-height: 1;
-      letter-spacing: -3px;
-      margin-bottom: 20px;
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      line-height: .95;
+      letter-spacing: -.065em;
+      max-width: 850px;
+      margin-bottom: 24px;
     }
 
-    .hero-description {
-      color: #666;
-      max-width: 650px;
-      font-size: 1.1rem;
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      max-width: 760px;
       margin-bottom: 30px;
     }
 
-    .profile-photo {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #eee;
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-meta span::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 8px;
     }
 
     .buttons {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 11px 18px;
-      border-radius: 8px;
-      border: 1px solid #222;
-      font-weight: bold;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      font-weight: 700;
+      transition: .2s ease;
     }
 
     .button.primary {
-      background: #171717;
-      color: white;
+      background: var(--text);
+      color: #0b1020;
+      border-color: var(--text);
     }
 
-    .button.secondary:hover {
-      background: #eee;
+    .button:hover { transform: translateY(-1px); }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: rgba(17,24,39,.72);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.22);
     }
 
-    /* Sections */
+    .hero-card .number {
+      font-size: 3.4rem;
+      font-weight: 850;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .stat {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 3px;
+    }
 
     section {
-      padding: 80px 0;
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
     }
 
-    section:nth-child(even) {
-      background: white;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 35px;
-      letter-spacing: -1px;
-    }
-
-    /* About */
-
-    .about {
-      max-width: 750px;
-      color: #666;
-      font-size: 1.05rem;
-    }
-
-    /* Experience */
-
-    .timeline {
+    .section-head {
       display: flex;
-      flex-direction: column;
-      gap: 35px;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.04em;
+      line-height: 1.1;
+    }
+
+    .summary {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1.08rem;
     }
 
     .experience {
       display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 30px;
+      grid-template-columns: 210px 1fr;
+      gap: 42px;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
     }
 
+    .experience:first-child { border-top: 0; padding-top: 0; }
+
     .date {
-      color: #777;
-      font-size: 0.9rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .role {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 3px;
     }
 
     .company {
-      color: #2563eb;
-      font-weight: bold;
-      margin: 4px 0 12px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
-    .experience p {
-      color: #666;
+    .experience ul {
+      padding-left: 20px;
+      color: var(--muted);
     }
 
-    /* Skills */
+    .experience li { margin-bottom: 9px; }
 
-    .skills {
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 23px;
+    }
+
+    .skill-group h3 {
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .skill {
-      background: #eee;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
+    .tag {
+      padding: 7px 10px;
+      border-radius: 7px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: .84rem;
+      border: 1px solid var(--line);
     }
 
-    /* Projects */
+    .education {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 42px;
+    }
 
-    .projects {
+    .education-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px;
+    }
+
+    .education-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .education-card p { color: var(--muted); }
+
+    .languages {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .project {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 25px;
-      background: white;
+    .language {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
     }
 
-    .project p {
-      color: #666;
-      margin: 10px 0 15px;
+    .language strong {
+      display: block;
+      margin-bottom: 5px;
     }
 
-    .project a {
-      color: #2563eb;
-      font-weight: bold;
-    }
-
-    /* Contact */
+    .language span { color: var(--muted); }
 
     .contact {
       text-align: center;
+      max-width: 800px;
+      margin: auto;
     }
 
     .contact p {
-      color: #666;
-      margin-bottom: 25px;
+      color: var(--muted);
+      margin: 18px auto 28px;
     }
 
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 12px;
     }
-
-    .contact-links a {
-      color: #2563eb;
-      font-weight: bold;
-    }
-
-    /* Footer */
 
     footer {
       padding: 30px 0;
-      text-align: center;
-      color: #777;
-      border-top: 1px solid #ddd;
-      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
     }
 
-    /* Mobile */
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
 
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-      }
+      .hero { padding: 75px 0; }
 
-      .hero {
-        padding: 70px 0;
-      }
-
-      .hero-grid {
+      .hero-grid,
+      .experience,
+      .education {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 22px;
       }
 
-      .profile-photo {
-        margin: auto;
-      }
+      .hero-card { max-width: 420px; }
 
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .buttons {
-        justify-content: center;
-      }
-
-      .experience {
-        grid-template-columns: 1fr;
-        gap: 5px;
-      }
-
-      .projects {
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 60px 0;
+      .languages {
+        grid-template-columns: 1fr;
+      }
+
+      section { padding: 65px 0; }
+    }
+
+    @media print {
+      nav, .buttons { display: none; }
+      body { background: white; color: black; }
+      section, .hero { padding: 30px 0; }
+      .hero-card, .skill-group, .education-card, .language {
+        background: white;
+        color: black;
+        border: 1px solid #ddd;
       }
     }
   </style>
-
 </head>
 
 <body>
 
   <nav>
-    <div class="container nav-content">
-      <a href="#" class="logo">ASH</a>
+    <div class="container nav-inner">
+      <a class="brand" href="#">ANDRIAN SUHARTADI</a>
 
-```
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</div>
-```
-
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <header class="hero">
     <div class="container hero-grid">
 
-```
-  <div>
-    <p class="role">YOUR JOB TITLE</p>
+      <div>
+        <div class="eyebrow">Cloud Infrastructure Engineer</div>
 
-    <h1>Your Name</h1>
+        <h1>Andrian Suhartadi</h1>
 
-    <p class="hero-description">
-      Write a short introduction about yourself here.
-      Explain what you do, what you're good at, and what
-      kind of work you are interested in.
-    </p>
+        <p class="hero-subtitle">
+          Cloud Infrastructure Engineer focused on multi-cloud platforms,
+          Kubernetes, cloud networking, hybrid connectivity, security,
+          and reliable production infrastructure.
+        </p>
 
-    <div class="buttons">
-      <a href="#contact" class="button primary">
-        Contact Me
-      </a>
+        <div class="hero-meta">
+          <span>Jakarta Metropolitan Area</span>
+          <span>17+ years in enterprise IT infrastructure</span>
+        </div>
 
-      <a href="cv.pdf" class="button secondary" download>
-        Download CV
-      </a>
+        <div class="buttons">
+          <a class="button primary" href="#contact">Get in touch</a>
+          <a class="button" href="cv.pdf" download>Download CV</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="number">26</div>
+        <p>Cloud accounts managed across multiple platforms</p>
+
+        <div class="stat">
+          <strong>11 Amazon EKS clusters</strong>
+          <span>Operated and maintained in production environments.</span>
+        </div>
+
+        <div class="stat">
+          <strong>4 cloud platforms</strong>
+          <span>AWS, Alibaba Cloud, Microsoft Azure, and GCP.</span>
+        </div>
+      </aside>
+
     </div>
-  </div>
-
-  <div>
-    <img
-      src="profile.jpg"
-      alt="Your Name"
-      class="profile-photo"
-    >
-  </div>
-
-</div>
-```
-
   </header>
 
-  <section id="about">
-    <div class="container">
+  <main>
 
-```
-  <h2 class="section-title">About Me</h2>
-
-  <p class="about">
-    Write your professional introduction here. Keep it short,
-    clear, and focused on your experience, interests, and
-    strengths.
-  </p>
-
-</div>
-```
-
-  </section>
-
-  <section id="experience">
-    <div class="container">
-
-```
-  <h2 class="section-title">Experience</h2>
-
-  <div class="timeline">
-
-    <article class="experience">
-
-      <div class="date">
-        2024 - Present
-      </div>
-
-      <div>
-        <h3>YOUR POSITION</h3>
-
-        <div class="company">
-          COMPANY NAME
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Profile</div>
+            <h2>Professional Summary</h2>
+          </div>
         </div>
 
-        <p>
-          Describe what you did in this position.
-          Focus on responsibilities, achievements,
-          technologies, and measurable results.
+        <p class="summary">
+          Cloud Infrastructure Engineer with over 17 years of experience in
+          enterprise IT infrastructure, including 6 years managing cloud
+          platforms and 4 years specializing in multi-cloud infrastructure
+          engineering. Experienced in designing, implementing, and operating
+          production cloud environments across Amazon Web Services (AWS),
+          Alibaba Cloud, Microsoft Azure, and Google Cloud Platform (GCP).
+          Currently responsible for managing 26 cloud accounts, operating
+          11 Amazon EKS clusters, and maintaining secure, scalable, and
+          highly available infrastructure supporting multiple enterprise
+          customers. Strong expertise in Kubernetes platform operations,
+          cloud networking, hybrid connectivity, cloud security, and
+          production infrastructure management.
         </p>
       </div>
+    </section>
 
-    </article>
-
-
-    <article class="experience">
-
-      <div class="date">
-        2022 - 2024
-      </div>
-
-      <div>
-        <h3>PREVIOUS POSITION</h3>
-
-        <div class="company">
-          PREVIOUS COMPANY
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Career</div>
+            <h2>Work Experience</h2>
+          </div>
         </div>
 
-        <p>
-          Describe your responsibilities and achievements
-          in this role.
-        </p>
+        <article class="experience">
+          <div class="date">2022 — Present</div>
+
+          <div>
+            <div class="role">Cloud Infrastructure Engineer</div>
+            <div class="company">PT Adicipta Inovasi Teknologi</div>
+
+            <ul>
+              <li>Manage and operate 26 cloud accounts across AWS, Alibaba Cloud, Azure, and Google Cloud Platform.</li>
+              <li>Operate and maintain 11 Amazon EKS clusters.</li>
+              <li>Administer cloud infrastructure including EC2, RDS, Redis, and Kubernetes.</li>
+              <li>Design cloud networking using VPC, VPN, Transit Gateway, PrivateLink, routing, and Load Balancers.</li>
+              <li>Implement custom Kubernetes networking and Karpenter.</li>
+              <li>Configure cloud security using IAM, CloudTrail, GuardDuty, and Security Hub.</li>
+              <li>Establish secure hybrid connectivity between cloud and on-premises environments.</li>
+              <li>Design production-ready cloud infrastructure for development teams.</li>
+              <li>Monitor infrastructure health, troubleshoot production issues, and optimize platform reliability.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="experience">
+          <div class="date">July 2009 — 2022</div>
+
+          <div>
+            <div class="role">Enterprise Infrastructure Engineer</div>
+            <div class="company">PT Adicipta Inovasi Teknologi</div>
+
+            <ul>
+              <li>Managed enterprise Windows Server infrastructure.</li>
+              <li>Administered Active Directory, virtualization, networking, and backup solutions.</li>
+              <li>Supported cloud adoption initiatives.</li>
+              <li>Maintained infrastructure availability through proactive monitoring and operational support.</li>
+            </ul>
+          </div>
+        </article>
       </div>
+    </section>
 
-    </article>
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Expertise</div>
+            <h2>Key Skills</h2>
+          </div>
+        </div>
 
-  </div>
+        <div class="skills-grid">
 
-</div>
-```
+          <div class="skill-group">
+            <h3>Cloud Platforms</h3>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Alibaba Cloud</span>
+              <span class="tag">Microsoft Azure</span>
+              <span class="tag">Google Cloud Platform</span>
+            </div>
+          </div>
 
-  </section>
+          <div class="skill-group">
+            <h3>Kubernetes & Platform</h3>
+            <div class="tags">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Amazon EKS</span>
+              <span class="tag">Karpenter</span>
+              <span class="tag">Platform Operations</span>
+            </div>
+          </div>
 
-  <section id="skills">
-    <div class="container">
+          <div class="skill-group">
+            <h3>Cloud Networking</h3>
+            <div class="tags">
+              <span class="tag">VPC</span>
+              <span class="tag">VPN</span>
+              <span class="tag">Transit Gateway</span>
+              <span class="tag">PrivateLink</span>
+              <span class="tag">Load Balancer</span>
+            </div>
+          </div>
 
-```
-  <h2 class="section-title">Skills</h2>
+          <div class="skill-group">
+            <h3>Cloud Services</h3>
+            <div class="tags">
+              <span class="tag">EC2</span>
+              <span class="tag">RDS</span>
+              <span class="tag">Redis</span>
+            </div>
+          </div>
 
-  <div class="skills">
+          <div class="skill-group">
+            <h3>Cloud Security</h3>
+            <div class="tags">
+              <span class="tag">IAM</span>
+              <span class="tag">CloudTrail</span>
+              <span class="tag">GuardDuty</span>
+              <span class="tag">Security Hub</span>
+            </div>
+          </div>
 
-    <span class="skill">HTML</span>
-    <span class="skill">CSS</span>
-    <span class="skill">JavaScript</span>
-    <span class="skill">Python</span>
-    <span class="skill">Git</span>
+          <div class="skill-group">
+            <h3>Operating Systems</h3>
+            <div class="tags">
+              <span class="tag">Linux</span>
+              <span class="tag">Windows Server</span>
+            </div>
+          </div>
 
-  </div>
+        </div>
+      </div>
+    </section>
 
-</div>
-```
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2>Academic Background</h2>
+          </div>
+        </div>
 
-  </section>
+        <div class="education">
+          <div class="date">2011 — 2015</div>
 
-  <section id="projects">
-    <div class="container">
+          <div class="education-card">
+            <h3>Bachelor of Computer Science</h3>
+            <p>Mercu Buana University</p>
+          </div>
+        </div>
 
-```
-  <h2 class="section-title">Projects</h2>
+        <div style="margin-top: 45px;">
+          <div class="section-kicker">Languages</div>
 
-  <div class="projects">
+          <div class="languages">
+            <div class="language">
+              <strong>Bahasa Indonesia</strong>
+              <span>Native</span>
+            </div>
 
-    <article class="project">
+            <div class="language">
+              <strong>English</strong>
+              <span>Professional Working Proficiency</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h3>Project One</h3>
+    <section id="contact">
+      <div class="container contact">
+        <div class="section-kicker">Contact</div>
+        <h2>Let's connect.</h2>
 
-      <p>
-        Describe your project, what problem it solves,
-        and what technologies you used.
-      </p>
+        <p>
+          For professional opportunities, infrastructure engineering
+          discussions, or collaboration, you can reach me through email
+          or LinkedIn.
+        </p>
 
-      <a href="#">
-        View Project →
-      </a>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:andrian.suhartadi@gmail.com">
+            Email
+          </a>
 
-    </article>
+          <a
+            class="button"
+            href="https://www.linkedin.com/in/ashrtd"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
 
+          <a
+            class="button"
+            href="https://github.com/ashcv91"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
 
-    <article class="project">
+          <a class="button" href="tel:+6281808260560">
+            +62 818-0826-0560
+          </a>
+        </div>
+      </div>
+    </section>
 
-      <h3>Project Two</h3>
-
-      <p>
-        Describe another project and highlight your
-        contribution or the result.
-      </p>
-
-      <a href="#">
-        View Project →
-      </a>
-
-    </article>
-
-  </div>
-
-</div>
-```
-
-  </section>
-
-  <section id="contact">
-    <div class="container contact">
-
-```
-  <h2 class="section-title">
-    Let's Connect
-  </h2>
-
-  <p>
-    Feel free to contact me for opportunities,
-    collaboration, or interesting projects.
-  </p>
-
-  <div class="contact-links">
-
-    <a href="mailto:YOUR_EMAIL@example.com">
-      Email
-    </a>
-
-    <a
-      href="https://github.com/ashcv91"
-      target="_blank"
-    >
-      GitHub
-    </a>
-
-    <a
-      href="https://www.linkedin.com/"
-      target="_blank"
-    >
-      LinkedIn
-    </a>
-
-  </div>
-
-</div>
-```
-
-  </section>
+  </main>
 
   <footer>
-    © 2026 Your Name
+    <div class="container">
+      © 2026 Andrian Suhartadi · Cloud Infrastructure Engineer
+    </div>
   </footer>
 
 </body>
