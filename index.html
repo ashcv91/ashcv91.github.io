@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ash | CV</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1000px, 92%);
+      margin: auto;
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-content {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      color: #666;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 250px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .role {
+      color: #2563eb;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      color: #666;
+      max-width: 650px;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #eee;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 11px 18px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      font-weight: bold;
+    }
+
+    .button.primary {
+      background: #171717;
+      color: white;
+    }
+
+    .button.secondary:hover {
+      background: #eee;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 80px 0;
+    }
+
+    section:nth-child(even) {
+      background: white;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 35px;
+      letter-spacing: -1px;
+    }
+
+    /* About */
+
+    .about {
+      max-width: 750px;
+      color: #666;
+      font-size: 1.05rem;
+    }
+
+    /* Experience */
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+    }
+
+    .date {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .company {
+      color: #2563eb;
+      font-weight: bold;
+      margin: 4px 0 12px;
+    }
+
+    .experience p {
+      color: #666;
+    }
+
+    /* Skills */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: #eee;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    /* Projects */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 25px;
+      background: white;
+    }
+
+    .project p {
+      color: #666;
+      margin: 10px 0 15px;
+    }
+
+    .project a {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    /* Contact */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      color: #777;
+      border-top: 1px solid #ddd;
+      font-size: 0.85rem;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-photo {
+        margin: auto;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .experience {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-content">
+      <a href="#" class="logo">ASH</a>
+
+```
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+```
+
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+
+```
+  <div>
+    <p class="role">YOUR JOB TITLE</p>
+
+    <h1>Your Name</h1>
+
+    <p class="hero-description">
+      Write a short introduction about yourself here.
+      Explain what you do, what you're good at, and what
+      kind of work you are interested in.
+    </p>
+
+    <div class="buttons">
+      <a href="#contact" class="button primary">
+        Contact Me
+      </a>
+
+      <a href="cv.pdf" class="button secondary" download>
+        Download CV
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <img
+      src="profile.jpg"
+      alt="Your Name"
+      class="profile-photo"
+    >
+  </div>
+
+</div>
+```
+
+  </header>
+
+  <section id="about">
+    <div class="container">
+
+```
+  <h2 class="section-title">About Me</h2>
+
+  <p class="about">
+    Write your professional introduction here. Keep it short,
+    clear, and focused on your experience, interests, and
+    strengths.
+  </p>
+
+</div>
+```
+
+  </section>
+
+  <section id="experience">
+    <div class="container">
+
+```
+  <h2 class="section-title">Experience</h2>
+
+  <div class="timeline">
+
+    <article class="experience">
+
+      <div class="date">
+        2024 - Present
+      </div>
+
+      <div>
+        <h3>YOUR POSITION</h3>
+
+        <div class="company">
+          COMPANY NAME
+        </div>
+
+        <p>
+          Describe what you did in this position.
+          Focus on responsibilities, achievements,
+          technologies, and measurable results.
+        </p>
+      </div>
+
+    </article>
+
+
+    <article class="experience">
+
+      <div class="date">
+        2022 - 2024
+      </div>
+
+      <div>
+        <h3>PREVIOUS POSITION</h3>
+
+        <div class="company">
+          PREVIOUS COMPANY
+        </div>
+
+        <p>
+          Describe your responsibilities and achievements
+          in this role.
+        </p>
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <section id="skills">
+    <div class="container">
+
+```
+  <h2 class="section-title">Skills</h2>
+
+  <div class="skills">
+
+    <span class="skill">HTML</span>
+    <span class="skill">CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Python</span>
+    <span class="skill">Git</span>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <section id="projects">
+    <div class="container">
+
+```
+  <h2 class="section-title">Projects</h2>
+
+  <div class="projects">
+
+    <article class="project">
+
+      <h3>Project One</h3>
+
+      <p>
+        Describe your project, what problem it solves,
+        and what technologies you used.
+      </p>
+
+      <a href="#">
+        View Project →
+      </a>
+
+    </article>
+
+
+    <article class="project">
+
+      <h3>Project Two</h3>
+
+      <p>
+        Describe another project and highlight your
+        contribution or the result.
+      </p>
+
+      <a href="#">
+        View Project →
+      </a>
+
+    </article>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <section id="contact">
+    <div class="container contact">
+
+```
+  <h2 class="section-title">
+    Let's Connect
+  </h2>
+
+  <p>
+    Feel free to contact me for opportunities,
+    collaboration, or interesting projects.
+  </p>
+
+  <div class="contact-links">
+
+    <a href="mailto:YOUR_EMAIL@example.com">
+      Email
+    </a>
+
+    <a
+      href="https://github.com/ashcv91"
+      target="_blank"
+    >
+      GitHub
+    </a>
+
+    <a
+      href="https://www.linkedin.com/"
+      target="_blank"
+    >
+      LinkedIn
+    </a>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <footer>
+    © 2026 Your Name
+  </footer>
+
+</body>
+</html>
